@@ -1,3 +1,4 @@
+import 'package:bir_bank_copy_app/statics/image_statics.dart';
 import 'package:flutter/material.dart';
 
 class NewsComponent extends StatelessWidget {
@@ -11,14 +12,14 @@ class NewsComponent extends StatelessWidget {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          AnnounceComponent(
-            "https://imageproxy.wolt.com/venue/631b3fbba74954985b10b724/a9a9fb4e-7ba7-11ed-b235-922036b28ac8_111111.png",
+          NewsItem(
+            ImageStatics().newsPhoto1,
           ),
-          AnnounceComponent(
-            "https://www.az24saat.org/wp-content/uploads/2023/07/Birbank-taksit-kartlarinda-butun-%C9%99m%C9%99liyyatlarda-guz%C9%99st-mudd%C9%99ti-63-gun%C9%99d%C9%99k-oldu.png",
+          NewsItem(
+            ImageStatics().newsPhoto2,
           ),
-          AnnounceComponent(
-            "https://www.kapitalbank.az/images/news/D/google-pay-birbank-visa-5-azn-cashback1661254642.jpg",
+          NewsItem(
+            ImageStatics().newsPhoto3,
           ),
         ],
       ),
@@ -26,9 +27,9 @@ class NewsComponent extends StatelessWidget {
   }
 }
 
-class AnnounceComponent extends StatelessWidget {
+class NewsItem extends StatelessWidget {
   late final String imageUrl;
-  AnnounceComponent(String url, {super.key}) {
+  NewsItem(String url, {super.key}) {
     imageUrl = url;
   }
 
@@ -45,7 +46,7 @@ class AnnounceComponent extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
-        child: Image.network(
+        child: Image.asset(
           imageUrl,
           fit: BoxFit.cover,
         ),
